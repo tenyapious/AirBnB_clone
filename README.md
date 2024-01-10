@@ -1,13 +1,14 @@
-Tasks:
+## Tasks:
 1. Discus the task
 2. Work seperately
 3. Compare work, explain if necessary
 4. Merge work
 
-Unittests:
+## Unittests:
 1. Write test cases (in english) together
 2. Write code for half the cases each
 
+## Schedule:
 - 10th: Task 3 and 4
 - 11th: Task 5 and 6
 - 12th: Task 7 and 8
