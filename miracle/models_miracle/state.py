@@ -6,7 +6,7 @@ from models.base_model import BaseModel
 class State(BaseModel):
     """Call for a state.
 
-    Attributes:
+   Public Class  Attributes:
         name (str): The name of the state.
     """
 
