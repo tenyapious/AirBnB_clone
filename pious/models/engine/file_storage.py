@@ -1,8 +1,7 @@
 #!/user/bin/python3
-import uuid
-from datetime import datetime
 import json
 import os
+from models.base_model import BaseModel
 
 ''' Define the file storage '''
 
@@ -18,17 +17,26 @@ class FileStorage:
         return self.__objects
 
     def new(self, obj):
-        objKey = obj['__class__'] + '.' + obj['id']
+        objKey = obj.__class__.__name__ + '.' + obj.id
         self.__objects[objKey] = obj
 
     def save(self):
-        with open(self.__file_path, 'w', encoding="utf-8") as file:
-            if self.__objects is not None:
-                file.write(json.dumps(self.__objects))
+        obj_dict = {}
+
+        if self.__objects is not None:
+            for obj in self.__objects.keys():
+                obj_dict[obj] = self.__objects[obj].to_dict()
+
+            with open(self.__file_path, 'w', encoding="utf-8") as file:
+                file.write(json.dumps(obj_dict))
 
     def reload(self):
         if os.path.exists(self.__file_path):
             with open(self.__file_path, 'r') as file:
-                json_obj = file.read()
+                json_obj = json.loads(file.read())
 
-            self.__objects = json.loads(json_obj) 
+            for obj in json_obj.values():
+                className = obj["__class__"]
+                del obj["__class__"]
+                self.new(eval(className)(**obj))
+
