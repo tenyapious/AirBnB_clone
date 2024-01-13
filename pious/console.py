@@ -5,21 +5,23 @@ import shlex
 
 from models import storage
 from models.base_model import BaseModel
+from models.user import User
 
 class HBNBCommand(cmd.Cmd):
     """Simple command processor example."""
 
     prompt = "(hbnb) "
 
-    def do_create(self, className):
-        if len(className) == 0:
+    def do_create(self, class_name):
+        if len(class_name) == 0:
             print("** class name missing **")
-        elif className == 'BaseModel':
-            my_model = BaseModel()
-            storage.save()
-            print(my_model.id)
         else:
-            print("** class doesn't exist **")
+            try:
+                my_model = globals()[class_name]()
+                storage.save()
+                print(my_model.id)
+            except KeyError:
+                print("** class doesn't exist **")
 
     def do_show(self, line):
         line_args = line.split()
@@ -100,7 +102,6 @@ class HBNBCommand(cmd.Cmd):
             print("** value missing **")
         else:
             arg_className, arg_id, attr, attr_val = [arg for arg in line_args]
-            print(attr_val)
             objects = storage.all()
             classNameFound = False
             idFound = False
