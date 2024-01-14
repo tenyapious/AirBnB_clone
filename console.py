@@ -12,6 +12,7 @@ from models.place import Place
 from models.amenity import Amenity
 from models.review import Review
 
+
 class HBNBCommand(cmd.Cmd):
     """Simple command processor example."""
 
@@ -122,7 +123,7 @@ class HBNBCommand(cmd.Cmd):
                             if attr_val.is_integer():
                                 setattr(obj_value, str(attr), int(attr_val))
                             else:
-                                setattr(obj_value, str(attr), attr_val) 
+                                setattr(obj_value, str(attr), attr_val)
                         except ValueError:
                             setattr(obj_value, str(attr), str(attr_val))
 
@@ -134,12 +135,12 @@ class HBNBCommand(cmd.Cmd):
             else:
                 print("** class doesn't exist **")
 
-
     def do_quit(self, line):
         return True
 
     def do_EOF(self, line):
         return True
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
