@@ -11,6 +11,12 @@ class BaseModel:
     ''' The BaseModel class '''
 
     def __init__(self, *args, **kwargs):
+        """ Initializes class variables
+
+        Args:
+            args: arguments
+            kwargs: key word arguments
+        """
         if kwargs:
             for key, value in kwargs.items():
                 if key != '__class__':
