@@ -24,7 +24,8 @@ class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
 
     def do_create(self, className):
-        """ Create a new class object and print out the id.
+        """ create command to create a new class object and print out the id.
+        Usage: create <class>
 
         Args:
             className: The name of the class
@@ -40,7 +41,9 @@ class HBNBCommand(cmd.Cmd):
                 print("** class doesn't exist **")
 
     def do_show(self, className_objId):
-        """ Display the string representation of a class object of a given id.
+        """ show command to show the string representation
+        of a class object of a given id.
+        Usage: show <class> <id>
 
         Args:
            className_objId(str): The object's class name and id
@@ -71,8 +74,8 @@ class HBNBCommand(cmd.Cmd):
                 print("** class doesn't exist **")
 
     def do_destroy(self, className_objId):
-        """ Delete a class object of a given id
-
+        """ destroy command to delete a class object of a given id.
+        Usage: destroy <class> <id>
         Args:
            className_objId(str): The object's class name and id
         """
@@ -105,7 +108,9 @@ class HBNBCommand(cmd.Cmd):
                 print("** class doesn't exist **")
 
     def do_all(self, className=""):
-        """ Display string representations of all object of a given class
+        """ all command to show string representations
+        of all object of a given class.
+        Usage: all or all <class>
 
         Args:
            className(str): The object's class name
@@ -125,7 +130,8 @@ class HBNBCommand(cmd.Cmd):
             print(list_objects)
 
     def do_update(self, className_objId_attr_attr_val):
-        """ Update the attribute of a class object."
+        """ update command to update the attribute of a class object.
+        Usage: update <class> <id> <attribute_name> <attribute_value>
 
         Args:
            className_objId_attr_attr_val(str): The object's class name,
@@ -171,20 +177,12 @@ class HBNBCommand(cmd.Cmd):
                 print("** class doesn't exist **")
 
     def do_quit(self, line):
-        """ Exit the program.
-
-        Returns:
-            True
-        """
+        """ Quit command to exit the program """
 
         return True
 
     def do_EOF(self, line):
-        """ EOF signal to exit the program
-
-        Returns:
-            True
-        """
+        """ EOF signal to exit the program """
 
         return True
 
