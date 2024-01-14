@@ -2,9 +2,10 @@
 import uuid
 from datetime import datetime
 import json
-import models 
+import models
 
 ''' Define the base model '''
+
 
 class BaseModel:
     ''' The BaseModel class '''
