@@ -176,6 +176,10 @@ class HBNBCommand(cmd.Cmd):
             else:
                 print("** class doesn't exist **")
 
+    def emptyline(self):
+        """ Do nothing if no argument is passed """
+        pass
+
     def do_quit(self, line):
         """ Quit command to exit the program """
 
