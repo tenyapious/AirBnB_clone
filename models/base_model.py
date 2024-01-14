@@ -1,10 +1,9 @@
 #!/user/bin/python3
+""" Define the base model """
 import uuid
 from datetime import datetime
 import json
 import models
-
-''' Define the base model '''
 
 
 class BaseModel:
